@@ -19,4 +19,8 @@ class math_lib{
     static pow(x,y){
         return Math.pow(x,y);
     }
+
+    static sqrt(x,y){
+        return Math.pow(x,1/y);
+    }
 }
