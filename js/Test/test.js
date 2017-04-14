@@ -71,6 +71,28 @@ describe('math_lib', function(){
     });
   });
 
+  describe('8^(1/3) = 2', function(){
+    it('test 8^(1/3)', function (){
+      expect(2).toEqual(math_lib.sqrt(8, 3));
+    });
+  });
 
+  describe('1024^(1/10) = 2', function(){
+    it('test 1024^(1/10)', function (){
+      expect(2).toEqual(math_lib.sqrt(1024, 10));
+    });
+  });
+
+  describe('2^(10) = 1024', function(){
+    it('test 2^10', function (){
+      expect(1024).toEqual(math_lib.pow(2, 10));
+    });
+  });
+
+  describe('25^(5) = 1024', function(){
+    it('test 25^5', function (){
+      expect(9765625).toEqual(math_lib.pow(25, 5));
+    });
+  });
 
 });
