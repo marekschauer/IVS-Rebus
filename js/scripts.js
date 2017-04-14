@@ -1,14 +1,10 @@
 angular.module('todoApp', [])
-  .controller('TodoListController', function() {
+.controller('TodoListController', function() {
     var todoList = this;
-    todoList.todos = "";
-    todoList.operands = ['0','1'];
+    todoList.operands = ['',''];
     todoList.operator = '';
- 
-    todoList.addTodo = function() {
-      todoList.todos = eval(todoList.todoText); //eval(todoList.todoText);
-      todoList.todoText = '';
-    };
+    todoList.result = '';
+
 
     todoList.operandsInsert = function(number) {
     	// todoList.operands.shift();
@@ -18,22 +14,30 @@ angular.module('todoApp', [])
     todoList.equalsHit = function() {
     	// todoList.operands.shift();
     	// todoList.operands[1] = todoList.operands[1] + number;
+        if (todoList.operands[0] != '' && todoList.operands[1] != '') {
+            todoList.operands[1] = eval(todoList.operands[0] + todoList.operator + todoList.operands[1]);
+            todoList.operands[0] = '';
+            todoList.result = todoList.operands[1];
+        } else {
 
+        }
     }
- 
-    // todoList.remaining = function() {
-    //   var count = 0;
-    //   angular.forEach(todoList.todos, function(todo) {
-    //     count += todo.done ? 0 : 1;
-    //   });
-    //   return count;
-    // };
- 
-    // todoList.archive = function() {
-    //   var oldTodos = todoList.todos;
-    //   todoList.todos = [];
-    //   angular.forEach(oldTodos, function(todo) {
-    //     if (!todo.done) todoList.todos.push(todo);
-    //   });
-    // };
-  });
+    
+    todoList.operatorHit = function(operator) {
+        // if (todoList.operands[0] == '') {
+        //     todoList.operands[1].shift();
+        //     alert('Som tu');
+        // }
+        if (todoList.operands[0] != '' && todoList.operands[1] != '') {
+            todoList.operands[0] = eval(todoList.operands[0] + todoList.operator + todoList.operands[1]);
+            todoList.result = todoList.operands[0];
+            todoList.operands[1] = '';
+        } else if (todoList.operands[0] == '') {
+            todoList.operands.shift();
+            todoList.operands[1] = '';
+        }
+
+        todoList.operator = operator;
+    }
+
+});
