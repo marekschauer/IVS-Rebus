@@ -58,4 +58,19 @@ describe('math_lib', function(){
       expect(20).toEqual(math_lib.mod(43532, 42));
     });
   });
+
+  describe('5! = 120', function(){
+    it('test 5!', function (){
+      expect(120).toEqual(math_lib.fact(5));
+    });
+  });
+
+  describe('2! = 2', function(){
+    it('test 2!', function (){
+      expect(2).toEqual(math_lib.fact(2));
+    });
+  });
+
+
+
 });
