@@ -16,4 +16,7 @@ class math_lib{
     	return x / y;
     }
 
+    static pow(x,y){
+        return Math.pow(x,y);
+    }
 }

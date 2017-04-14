@@ -51,6 +51,8 @@ angular.module('todoApp', [])
                     return  todoList.operands[1] = math_lib.mul(op1, op2); 
                 case '/': 
                     return  todoList.operands[1] = math_lib.div(op1, op2);
+                case '^':
+                    return  todoList.operands[1] = math_lib.pow(op1, op2); 
                 default:
                     return 'error';    
             }
