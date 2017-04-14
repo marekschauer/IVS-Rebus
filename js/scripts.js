@@ -3,6 +3,7 @@ angular.module('todoApp', [])
     var todoList = this;
     todoList.todos = "";
     todoList.operands = ['0','1'];
+    todoList.operator = '';
  
     todoList.addTodo = function() {
       todoList.todos = eval(todoList.todoText); //eval(todoList.todoText);
@@ -14,9 +15,10 @@ angular.module('todoApp', [])
     	todoList.operands[1] = todoList.operands[1] + number;
     }
 
-    todoList.operandsInsert = function() {
+    todoList.equalsHit = function() {
     	// todoList.operands.shift();
-    	todoList.operands[1] = todoList.operands[1] + number;
+    	// todoList.operands[1] = todoList.operands[1] + number;
+
     }
  
     // todoList.remaining = function() {
