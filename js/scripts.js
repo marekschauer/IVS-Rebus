@@ -67,6 +67,8 @@ angular.module('todoApp', [])
                     return  todoList.operands[1] = math_lib.pow(op1, op2);
                 case 's':
                     return  todoList.operands[1] = math_lib.sqrt(op2, op1); 
+                case 'mod':
+                    return  todoList.operands[1] = math_lib.mod(op1, op2); 
                 default:
                     return 'error';    
             }
