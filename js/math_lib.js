@@ -34,12 +34,12 @@ class math_lib{
         }while(1);
     }
 
-    static factorial(x){
+    static fact(x){
         if((x == 0) || (x == 1)){
             return 1;
         }
         else{
-            return (x * math_lib.factorial(x-1));        
+            return (x * math_lib.fact(x-1));        
         }
     }
 }
