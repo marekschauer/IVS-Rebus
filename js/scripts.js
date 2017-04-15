@@ -13,6 +13,7 @@ angular.module('todoApp', [])
             todoList.eqHitLast = false;
         }
     	todoList.operands[1] = todoList.operands[1] + number;
+        todoList.result = todoList.operands[1];
     }
 
     todoList.equalsHit = function() {
@@ -25,6 +26,7 @@ angular.module('todoApp', [])
             todoList.result = todoList.operands[1];
         }
         todoList.eqHitLast = true;
+        todoList.operator = '';
     }
     
     todoList.operatorHit = function(operator) {
@@ -39,6 +41,17 @@ angular.module('todoApp', [])
         }
 
         todoList.operator = operator;
+    }
+
+    todoList.clearHit = function(operator) {
+        todoList.operands = ['',''];
+        todoList.operator = '';
+        todoList.result = '';
+    }
+
+    todoList.delHit = function(operator) {
+        todoList.operands[1] = String(todoList.operands[1]).substring(0,String(todoList.operands[1]).length - 1);
+        todoList.result = todoList.operands[1];
     }
 
     todoList.eval = function(op1, op2, operator) {
