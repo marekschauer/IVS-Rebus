@@ -78,7 +78,7 @@ angular.module('todoApp', [])
                 case 'mod':
                     return  todoList.operands[1] = math_lib.mod(op1, op2);
                 case '!':
-                    return  todoList.operands[1] = math_lib.factorial(op1); 
+                    return  todoList.operands[1] = math_lib.fact(op1); 
                 default:
                     return 'error';    
             }
