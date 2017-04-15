@@ -8,6 +8,9 @@ angular.module('todoApp', [])
 
 
     todoList.operandsInsert = function(number) {
+        if(todoList.operator == '!'){
+            return;
+        }
         if(todoList.eqHitLast == true) {
             todoList.operands[1] = '';
             todoList.eqHitLast = false;
@@ -22,7 +25,12 @@ angular.module('todoApp', [])
             todoList.operands[1] = todoList.eval(Number(todoList.operands[0]),Number(todoList.operands[1]),todoList.operator);
             todoList.operands[0] = '';
             todoList.result = todoList.operands[1];
-        } else {
+        } else if (todoList.operator == '!' && todoList.operands[0] != '') {
+            todoList.operands[1] = todoList.eval(Number(todoList.operands[0]),Number(todoList.operands[1]),todoList.operator);
+            todoList.operands[0] = '';
+            todoList.result = todoList.operands[1];
+        }
+        else {
             todoList.result = todoList.operands[1];
         }
         todoList.eqHitLast = true;
@@ -67,6 +75,10 @@ angular.module('todoApp', [])
                     return  todoList.operands[1] = math_lib.pow(op1, op2);
                 case 's':
                     return  todoList.operands[1] = math_lib.sqrt(op2, op1); 
+                case 'mod':
+                    return  todoList.operands[1] = math_lib.mod(op1, op2);
+                case '!':
+                    return  todoList.operands[1] = math_lib.factorial(op1); 
                 default:
                     return 'error';    
             }
