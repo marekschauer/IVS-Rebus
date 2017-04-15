@@ -1,60 +1,69 @@
 <!doctype html>
 <html ng-app="todoApp">
 <head>
-	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-	<!-- Optional theme -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
-	<script src="js/angular.min.js"></script>
-	<script src="js/scripts.js"></script>
-	<script src="js/math_lib.js"></script>
-	<link rel="stylesheet" href="css/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <script src="js/angular.min.js"></script>
+  <script src="js/scripts.js"></script>
+  <script src="js/math_lib.js"></script>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 	<div class="container">
-		<h2>Pretty awesome KALKULAJDA</h2>
 		<div ng-controller="TodoListController as todoList">
-      <div class="row">
-        <span>Operandy: {{todoList.operands}}</span>
+      <div class="row calculator">
+      	
+        <div class="cols-xs-12 result">
+          <p class="text-right operator">
+            {{todoList.operands[0]}} {{todoList.operator}}
+          </p>
+          <p class="text-right">
+            {{todoList.result}}
+          </p>
+        </div>
+
+        <div class="col-xs-6 nopadding">
+          <div class="col-xs-6 nopadding">
+            <div ng-click="todoList.clearHit()" class="number btn text-center nopadding">C</div>
+            <div ng-click="todoList.operatorHit('sqrt')" class="number btn text-center nopadding">&radic;</div>
+            <div ng-click="todoList.operandsInsert('7')" class="number btn text-center nopadding">7</div>
+            <div ng-click="todoList.operandsInsert('4')" class="number btn text-center nopadding">4</div>
+            <div ng-click="todoList.operandsInsert('1')" class="number btn text-center nopadding">1</div>
+          </div>
+          <div class="col-xs-6 nopadding">
+            <div ng-click="todoList.delHit('+')" class="number btn text-center nopadding">DEL</div>
+            <div ng-click="todoList.operatorHit('!')" class="number btn text-center nopadding">!</div>
+            <div ng-click="todoList.operandsInsert('8')" class="number btn text-center nopadding">8</div>
+            <div ng-click="todoList.operandsInsert('5')" class="number btn text-center nopadding">5</div>
+            <div ng-click="todoList.operandsInsert('2')" class="number btn text-center nopadding">2</div>
+          </div>
+          <div class="col-xs-12 nopadding">
+            <div ng-click="todoList.operandsInsert('0')" class="number btn text-center nopadding">0</div>
+          </div>
+        </div>
+
+        <div class="col-xs-6 nopadding">
+          <div class="col-xs-6 nopadding">
+            <div ng-click="todoList.operatorHit('^')" class="number btn text-center nopadding">^</div>
+            <div ng-click="todoList.operatorHit('/')" class="number btn text-center nopadding">/</div>
+            <div ng-click="todoList.operandsInsert('9')" class="number btn text-center nopadding">9</div>
+            <div ng-click="todoList.operandsInsert('6')" class="number btn text-center nopadding">6</div>
+            <div ng-click="todoList.operandsInsert('3')" class="number btn text-center nopadding">3</div>
+            <div ng-click="todoList.operandsInsert('.')" class="number btn text-center nopadding">.</div>
+          </div>
+          <div class="col-xs-6 nopadding">
+            <div ng-click="todoList.operatorHit('mod')" class="number btn text-center nopadding">mod</div>
+            <div ng-click="todoList.operatorHit('*')" class="number btn text-center nopadding">*</div>
+            <div ng-click="todoList.operatorHit('-')" class="number btn text-center nopadding">-</div>
+            <div ng-click="todoList.operatorHit('+')" class="number btn text-center nopadding">+</div>
+            <div ng-click="todoList.equalsHit()" class="number btn text-center nopadding double-height bg-orange">=</div>
+          </div>
+        </div>
+
       </div>
-      <div class="row">
-        <span>Operator: {{todoList.operator}}</span>
-      </div>
-      <div class="row">
-        <span>Vysledok: {{todoList.result}}</span>
-      </div>
-      <div class="row">
-      	<div class="row">
-         <span ng-click="todoList.operandsInsert('1')" class="btn btn-default number">1</span>
-         <span ng-click="todoList.operandsInsert('2')" class="btn btn-default number">2</span>
-         <span ng-click="todoList.operandsInsert('3')" class="btn btn-default number">3</span>
-         <span ng-click="todoList.operatorHit('+')" class="btn btn-default number">+</span>
-       </div>
-       <div class="row">
-         <span ng-click="todoList.operandsInsert('4')" class="btn btn-default number">4</span>
-         <span ng-click="todoList.operandsInsert('5')" class="btn btn-default number">5</span>
-         <span ng-click="todoList.operandsInsert('6')" class="btn btn-default number">6</span>
-         <span ng-click="todoList.operatorHit('-')" class="btn btn-default number">-</span>
-       </div>
-       <div class="row">
-         <span ng-click="todoList.operandsInsert('7')" class="btn btn-default number">7</span>
-         <span ng-click="todoList.operandsInsert('8')" class="btn btn-default number">8</span>
-         <span ng-click="todoList.operandsInsert('9')" class="btn btn-default number">9</span>
-         <span ng-click="todoList.operatorHit('*')" class="btn btn-default number">*</span>
-       </div>
-       <div class="row">
-        <span ng-click="todoList.operandsInsert('0')" class="btn btn-default text-center number">0</span>
-        <span ng-click="todoList.operatorHit('/')" class="btn btn-default number">/</span>
-      </div>
-      <div class="row">
-        <span ng-click="todoList.equalsHit()" class="btn btn-default number">=</span>
-        <span ng-click="todoList.operatorHit('^')" class="btn btn-default number">x^y</span>
-        <span ng-click="todoList.operatorHit('s')" class="btn btn-default number">(x)sqrt(y)</span>
-      </div>
+
     </div>
   </div>
-</div>
 </body>
 </html>
