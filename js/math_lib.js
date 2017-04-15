@@ -23,4 +23,14 @@ class math_lib{
     static sqrt(x,y){
         return Math.pow(x,1/y);
     }
+
+    static mod(x,y){
+        do{
+            if(x < y){
+                return x;
+            }else{
+                x = x - y;
+            }
+        }while(1);
+    }
 }

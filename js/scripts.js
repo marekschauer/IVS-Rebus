@@ -13,6 +13,7 @@ angular.module('todoApp', [])
             todoList.eqHitLast = false;
         }
     	todoList.operands[1] = todoList.operands[1] + number;
+        todoList.result = todoList.operands[1];
     }
 
     todoList.equalsHit = function() {
@@ -25,6 +26,7 @@ angular.module('todoApp', [])
             todoList.result = todoList.operands[1];
         }
         todoList.eqHitLast = true;
+        todoList.operator = '';
     }
     
     todoList.operatorHit = function(operator) {
@@ -37,8 +39,18 @@ angular.module('todoApp', [])
             todoList.operands.shift();
             todoList.operands[1] = '';
         }
-
         todoList.operator = operator;
+    }
+
+    todoList.clearHit = function(operator) {
+        todoList.operands = ['',''];
+        todoList.operator = '';
+        todoList.result = '';
+    }
+
+    todoList.delHit = function(operator) {
+        todoList.operands[1] = String(todoList.operands[1]).substring(0,String(todoList.operands[1]).length - 1);
+        todoList.result = todoList.operands[1];
     }
 
     todoList.eval = function(op1, op2, operator) {
@@ -54,7 +66,7 @@ angular.module('todoApp', [])
                 case '^':
                     return  todoList.operands[1] = math_lib.pow(op1, op2);
                 case 's':
-                    return  todoList.operands[1] = math_lib.sqrt(op1, op2); 
+                    return  todoList.operands[1] = math_lib.sqrt(op2, op1); 
                 default:
                     return 'error';    
             }
