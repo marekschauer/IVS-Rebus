@@ -3,7 +3,7 @@ angular.module('todoApp', [])
     var todoList = this;
     todoList.operands = ['',''];
     todoList.operator = '';
-    todoList.result = '';
+    todoList.result = '0';
     todoList.eqHitLast = false;
 
 

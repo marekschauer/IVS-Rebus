@@ -12,19 +12,22 @@
 }
 
 body {
-	background: #dcdcdc;
-	/*background: url(http://thepatternlibrary.com/img/an.jpg);*/
+	background: #1b1b1b;
 	color: #FFF;
-	/*font-size: 5.5em;*/
+	font-family: 'Roboto', sans-serif;
+	font-weight: lighter;
+	font-size: 2em;
 }
 
-.number {
+body, html {
+	height: 100%;
+}
+
+/*.number {
 	border: 1px solid #1b1b1b;
 	background: #383838;
 	height: 100px;
-	line-height: 100px;
 	border-radius: 0;
-	/*padding-top: 10%;*/
 	font-family: 'Roboto', sans-serif;
 	font-weight: lighter;
 	font-size: 1.5em;
@@ -36,8 +39,6 @@ body {
 }
 
 .btn:active {
-	/*border: 2px solid #1b1b1b;*/
-	/*box-shadow: inset 0px 0px 3px #000;*/
 	background: #2d2d2d;
 }
 
@@ -74,10 +75,6 @@ body {
 	line-height: 200px;
 }
 
-/*.text {
-	line-height: 10%;
-}*/
-
 @media (min-width: 500px) {
 	.container {
 		width: 500px;
@@ -85,7 +82,165 @@ body {
 }
 
 @media (max-width: 500px) {
-	.container {
-		/*margin: 10px;*/
+	html, body {
+	height: 100%;
+	}
+
+	.number {
+		height: 16%;
+	}
+
+	.mobile-full-height {
+		height: 100%;
+	}
+
+	.mobile-vertical-84 {
+		height: 84%;
+	}
+
+	.mobile-vertical-16 {
+		height: 16%;
+	}
+
+	.mobile-vertical-20 {
+		height: 20%;
+	}
+
+	.keyboard {
+		position: absolute;
+		bottom: 0;
+		height: 75%;
+	}
+}*/
+
+.calculator {
+	/*border: 1px solid red;*/
+	width: 100%;
+	height: 100%;
+	max-width: 500px;
+	margin: 0 auto;
+	background: #272727;
+	position: relative;
+	/*box-shadow: 13px 11px 13px #8e8e8e;*/
+}
+
+.display {
+	/*border: 1px solid green;*/
+	height: 25%;
+	width: 100%;
+	position: absolute;
+	top: 0;
+	font-size: 4em;
+	overflow: hidden;
+}
+
+.display p {
+	margin: 0;
+}
+
+.operator {
+	height: 25%;
+	font-size: 0.2em;
+	padding: 5%;
+}
+
+.result {
+	height: 65%;
+	/*line-height: 100%*/
+	padding: 5% 2%;
+	line-height: 1em;
+}
+
+.keyboard {
+	height: 75%;
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+	white-space: nowrap;
+	-webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
+.number {
+	background: #383838;
+	width: 25%;
+	float: left;
+	height: 16.66667%;
+	border-bottom: 1px solid #1b1b1b;
+	border-right: 1px solid #1b1b1b;
+	line-height: 100%;
+	font-size: 0.8em;
+}
+
+.number span {
+	position: relative;
+	top: 40%;
+	transform: translateY(-50%);
+	cursor: default;
+}
+
+.number:active {
+	background: #2b2b2b;
+
+}
+
+.equals {
+	background: #ef8f00;
+	height: 33.33334%;
+}
+
+.equals:active {
+	background: #ca7900;
+}
+
+.zero {
+	width: 50%;
+	position: absolute;
+	bottom: 0;
+}
+
+.dot {
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+}
+
+.no-right-line {
+	border-right: none;
+}
+
+.no-bottom-line {
+	border-bottom: none;
+}
+
+@media (min-width: 500px) {
+	.calculator {
+	max-height: 800px;
+	position: relative;
+	top: 20px;
+	}
+}
+
+@media (min-width: 500px) and (max-height: 800px) {
+	body {
+		background: #1b1b1b;
+	}
+
+	.calculator {
+		top: 0;
+	}
+
+	.operator {
+		padding: 2% 2% 0 0;
+	}
+
+	.result {
+		padding: 2% 2% 0 0;
+		font-size: 0.6em;
 	}
 }
