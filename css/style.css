@@ -174,7 +174,6 @@ body, html {
 	border-bottom: 1px solid #1b1b1b;
 	border-right: 1px solid #1b1b1b;
 	line-height: 100%;
-	font-size: 0.8em;
 }
 
 .number span {
@@ -199,15 +198,19 @@ body, html {
 }
 
 .zero {
-	width: 50%;
 	position: absolute;
 	bottom: 0;
+	left: 25%;
 }
 
-.dot {
+.dot, .plus-minus {
 	position: absolute;
 	bottom: 0;
 	left: 50%;
+}
+
+.plus-minus {
+	left: 0;
 }
 
 .no-right-line {
