@@ -60,10 +60,7 @@ body, html {
 }
 
 .display::-webkit-scrollbar-thumb {
-    -webkit-border-radius: 10px;
-    border-radius: 10px;
     background: rgba(239,143,0,1); 
-    /*-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); */
 }
 
 .display::-webkit-scrollbar {
@@ -72,8 +69,6 @@ body, html {
 
 .display::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
-    -webkit-border-radius: 10px;
-    border-radius: 10px;
 }
 
 .display p {
@@ -88,8 +83,7 @@ body, html {
 
 .result {
 	height: 65%;
-	/*line-height: 100%*/
-	padding: 5% 2%;
+	padding: 3% 2%;
 	line-height: 1em;
 }
 
