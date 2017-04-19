@@ -2,6 +2,7 @@
 <html ng-app="todoApp">
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="theme-color" content="#272727">
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <script src="js/angular.min.js"></script>
@@ -9,61 +10,47 @@
   <script src="js/math_lib.js"></script>
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-	<div class="container">
-		<div ng-controller="TodoListController as todoList">
-      <div class="row calculator">
-      	
-        <div class="cols-xs-12 result">
-          <p class="text-right operator">
-            {{todoList.operands[0]}} {{todoList.operator}}
-          </p>
-          <p class="text-right">
-            {{todoList.result}}
-          </p>
-        </div>
+<body id="body">
+  <div class="calculator">
+    <div ng-controller="TodoListController as todoList" class="mobile-full-height">
 
-        <div class="col-xs-6 nopadding">
-          <div class="col-xs-6 nopadding">
-            <div ng-click="todoList.clearHit()" class="number btn text-center nopadding">C</div>
-            <div ng-click="todoList.operatorHit('s')" class="number btn text-center nopadding"><sup style="font-size: 0.5em; padding-bottom: 0.6em;">y</sup>&radic;x</div>
-            <div ng-click="todoList.operandsInsert('7')" class="number btn text-center nopadding">7</div>
-            <div ng-click="todoList.operandsInsert('4')" class="number btn text-center nopadding">4</div>
-            <div ng-click="todoList.operandsInsert('1')" class="number btn text-center nopadding">1</div>
-          </div>
-          <div class="col-xs-6 nopadding">
-            <div ng-click="todoList.delHit('+')" class="number btn text-center nopadding">DEL</div>
-            <div ng-click="todoList.operatorHit('!')" class="number btn text-center nopadding">x!</div>
-            <div ng-click="todoList.operandsInsert('8')" class="number btn text-center nopadding">8</div>
-            <div ng-click="todoList.operandsInsert('5')" class="number btn text-center nopadding">5</div>
-            <div ng-click="todoList.operandsInsert('2')" class="number btn text-center nopadding">2</div>
-          </div>
-          <div class="col-xs-12 nopadding">
-            <div ng-click="todoList.operandsInsert('0')" class="number btn text-center nopadding">0</div>
-          </div>
-        </div>
-
-        <div class="col-xs-6 nopadding">
-          <div class="col-xs-6 nopadding">
-            <div ng-click="todoList.operatorHit('^')" class="number btn text-center nopadding">x<sup><sup>y</sup></sup></div>
-            <div ng-click="todoList.operatorHit('/')" class="number btn text-center nopadding">/</div>
-            <div ng-click="todoList.operandsInsert('9')" class="number btn text-center nopadding">9</div>
-            <div ng-click="todoList.operandsInsert('6')" class="number btn text-center nopadding">6</div>
-            <div ng-click="todoList.operandsInsert('3')" class="number btn text-center nopadding">3</div>
-            <div ng-click="todoList.operandsInsert('.')" class="number btn text-center nopadding">.</div>
-          </div>
-          <div class="col-xs-6 nopadding">
-            <div ng-click="todoList.operatorHit('mod')" class="number btn text-center nopadding">mod</div>
-            <div ng-click="todoList.operatorHit('*')" class="number btn text-center nopadding">*</div>
-            <div ng-click="todoList.operatorHit('-')" class="number btn text-center nopadding">-</div>
-            <div ng-click="todoList.operatorHit('+')" class="number btn text-center nopadding">+</div>
-            <div ng-click="todoList.equalsHit()" class="number btn text-center nopadding double-height bg-orange">=</div>
-          </div>
-        </div>
-
+      <div class="display">
+        <p class="text-right operator">
+          {{todoList.operands[0]}} {{todoList.operator}}
+        </p>
+        <p class="text-right result">
+          {{todoList.result}}
+        </p>
       </div>
-
+      
+      <div class="keyboard">
+        <div ng-click="todoList.clearHit()" class="number text-center"><span>C</span></div>
+        <div ng-click="todoList.delHit()" class="number text-center"><span>DEL</span></div>
+        <div ng-click="todoList.operatorHit('^')" class="number text-center"><span>x<sup><sup>y</sup></sup></span></div>
+        <div ng-click="todoList.operatorHit('/')" class="number text-center no-right-line"><span>/</span></div>
+        <div ng-click="todoList.operatorHit('s')" class="number text-center"><span><sup style="font-size: 0.5em; padding-bottom: 0.6em;">y</sup>&radic;x</span></div>
+        <div ng-click="todoList.operatorHit('!')" class="number text-center"><span>x!</span></div>
+        <div ng-click="todoList.operatorHit('mod')" class="number text-center"><span>mod</span></div>
+        <div ng-click="todoList.operatorHit('*')" class="number text-center no-right-line"><span>*</span></div>
+        <div ng-click="todoList.operandsInsert('7')" class="number text-center"><span>7</span></div>
+        <div ng-click="todoList.operandsInsert('8')" class="number text-center"><span>8</span></div>
+        <div ng-click="todoList.operandsInsert('9')" class="number text-center"><span>9</span></div>
+        <div ng-click="todoList.operatorHit('-')" class="number text-center no-right-line"><span>-</span></div>
+        <div ng-click="todoList.operandsInsert('4')" class="number text-center"><span>4</span></div>
+        <div ng-click="todoList.operandsInsert('5')" class="number text-center"><span>5</span></div>
+        <div ng-click="todoList.operandsInsert('6')" class="number text-center"><span>6</span></div>
+        <div ng-click="todoList.operatorHit('+')" class="number text-center no-right-line"><span>+</span></div>
+        <div ng-click="todoList.operandsInsert('1')" class="number text-center"><span>1</span></div>
+        <div ng-click="todoList.operandsInsert('2')" class="number text-center"><span>2</span></div>
+        <div ng-click="todoList.operandsInsert('3')" class="number text-center"><span>3</span></div>
+        <div ng-click="todoList.equalsHit()" class="number text-center equals no-right-line no-bottom-line"><span>=</span></div>
+        <div ng-click="todoList.plusMinusHit()" class="number text-center plus-minus"><span>&plusmn;</span></div>
+        <div ng-click="todoList.operandsInsert('0')" class="number text-center zero no-bottom-line"><span>0</span></div>
+        <div ng-click="todoList.operandsInsert('.')" class="number text-center dot no-bottom-line"><span>.</span></div>
+        
+      </div>
     </div>
   </div>
+</script>
 </body>
 </html>
