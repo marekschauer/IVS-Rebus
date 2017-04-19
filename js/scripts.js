@@ -35,6 +35,11 @@ angular.module('todoApp', [])
         }
         todoList.eqHitLast = true;
         todoList.operator = '';
+
+        if(todoList.result == "Infinity"){
+            todoList.operands[0] = '';
+            todoList.operands[1] = '';
+        }
     }
     
     todoList.operatorHit = function(operator) {
@@ -43,6 +48,8 @@ angular.module('todoApp', [])
             todoList.operands[0] = todoList.eval(Number(todoList.operands[0]),Number(todoList.operands[1]),todoList.operator);
             todoList.result = todoList.operands[0];
             todoList.operands[1] = '';
+        } else if(todoList.operands[0] == '' && todoList.operands[1] == ''){
+            return; //nejde zasat operator kdyz neni zadan operand
         } else if (todoList.operands[0] == '') {
             todoList.operands.shift();
             todoList.operands[1] = '';
