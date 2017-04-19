@@ -50,6 +50,11 @@ angular.module('todoApp', [])
         todoList.operator = operator;
     }
 
+    todoList.plusMinusHit = function(){
+        todoList.operands[1] = Number(todoList.operands[1] * (-1));
+        todoList.result = todoList.operands[1];
+    }
+
     todoList.clearHit = function(operator) {
         todoList.operands = ['',''];
         todoList.operator = '';
