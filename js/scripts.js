@@ -8,6 +8,10 @@ angular.module('todoApp', [])
 
 
     todoList.operandsInsert = function(number) {
+        if(todoList.result == "error"){
+            return;
+        }
+
         if(todoList.operator == '!'){
             return;
         }
@@ -20,6 +24,10 @@ angular.module('todoApp', [])
     }
 
     todoList.equalsHit = function() {
+        if(todoList.result == "error"){
+            return;
+        }
+
         if (todoList.operands[0] != '' && todoList.operands[1] != '') {
             //todoList.operands[1] = eval(todoList.operands[0] + todoList.operator + todoList.operands[1]);
             todoList.operands[1] = todoList.eval(Number(todoList.operands[0]),Number(todoList.operands[1]),todoList.operator);
@@ -35,19 +43,39 @@ angular.module('todoApp', [])
         }
         todoList.eqHitLast = true;
         todoList.operator = '';
+
+        if(todoList.result == "Infinity"){
+            todoList.operands[0] = '';
+            todoList.operands[1] = '';
+        }
     }
     
     todoList.operatorHit = function(operator) {
+        if(todoList.result == "error"){
+            return;
+        }
+
         if (todoList.operands[0] != '' && todoList.operands[1] != '') {
             //todoList.operands[0] = eval(todoList.operands[0] + todoList.operator + todoList.operands[1]);
             todoList.operands[0] = todoList.eval(Number(todoList.operands[0]),Number(todoList.operands[1]),todoList.operator);
             todoList.result = todoList.operands[0];
             todoList.operands[1] = '';
+        } else if(todoList.operands[0] == '' && todoList.operands[1] == ''){
+            return; //nejde zasat operator kdyz neni zadan operand
         } else if (todoList.operands[0] == '') {
             todoList.operands.shift();
             todoList.operands[1] = '';
         }
         todoList.operator = operator;
+    }
+
+    todoList.plusMinusHit = function(){
+        if(todoList.result == "error"){
+            return;
+        }
+
+        todoList.operands[1] = Number(todoList.operands[1] * (-1));
+        todoList.result = todoList.operands[1];
     }
 
     todoList.clearHit = function(operator) {
@@ -57,6 +85,10 @@ angular.module('todoApp', [])
     }
 
     todoList.delHit = function(operator) {
+        if(todoList.result == "error"){
+            return;
+        }
+
         todoList.operands[1] = String(todoList.operands[1]).substring(0,String(todoList.operands[1]).length - 1);
         todoList.result = todoList.operands[1];
     }
