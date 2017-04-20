@@ -58,6 +58,10 @@ angular.module('calcApp', [])
             calc.operands[1] = calc.eval(Number(calc.operands[0]),Number(calc.operands[1]),calc.operator);
             calc.operands[0] = '';
             calc.result = calc.operands[1];
+        }else if(calc.operator == 'sqrt' && calc.operands[0] != ''){
+            calc.operands[1] = "";
+            calc.operands[0] = "";
+            calc.result = "NaN";
         }
         else {
             calc.result = calc.operands[1];
@@ -88,6 +92,7 @@ angular.module('calcApp', [])
             calc.operands[1] = '';
         }
         calc.operator = operator;
+        calc.result = "";
     }
 
     calc.plusMinusHit = function(){
@@ -138,7 +143,7 @@ angular.module('calcApp', [])
                     return  calc.operands[1] = math_lib.div(op1, op2);
                 case '^':
                     return  calc.operands[1] = math_lib.pow(op1, op2);
-                case 's':
+                case 'sqrt':
                     return  calc.operands[1] = math_lib.sqrt(op2, op1); 
                 case 'mod':
                     return  calc.operands[1] = math_lib.mod(op1, op2);
