@@ -34,13 +34,18 @@ angular.module('calcApp', [])
             return;
         }
         //tecka jako prvni prida implicitně nulu před
-        if(calc.operands[1] == "" && number == '.'){
+        if((calc.operands[1] == "" || calc.operands[1] == "0") && number == '.'){
             calc.operands[1] = "0.";
             calc.result = calc.operands[1];
             return;
         }
 
-    	calc.operands[1] = calc.operands[1] + number;
+        if(calc.operands[1] == "0"){
+            calc.operands[1] = number;  
+        }
+        else{
+    	   calc.operands[1] = calc.operands[1] + number;
+        }
         calc.result = calc.operands[1];
     }
 
