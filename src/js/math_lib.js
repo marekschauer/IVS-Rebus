@@ -25,6 +25,10 @@ class math_lib{
     }
 
     static mod(x,y){
+        if(y == 0){
+            return "NaN";
+        }
+
         do{
             if(x < y){
                 return x;
@@ -35,6 +39,15 @@ class math_lib{
     }
 
     static fact(x){
+        //nad 1000 uz cislo tak velke ze se vypise Infinity
+        if(x > 1000){
+            return "Infinity";
+        }
+        //na desetine cislo nejde udelat faktorial
+        if(!Number.isInteger(x) || x < 0){
+            return "NaN";
+        }
+
         if((x == 0) || (x == 1)){
             return 1;
         }
