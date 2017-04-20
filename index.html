@@ -1,5 +1,5 @@
 <!doctype html>
-<html ng-app="todoApp">
+<html ng-app="calcApp">
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <meta name="theme-color" content="#272727">
@@ -12,41 +12,41 @@
 </head>
 <body id="body">
   <div class="calculator">
-    <div ng-controller="TodoListController as todoList" class="mobile-full-height">
+    <div ng-controller="CalcController as calc" class="mobile-full-height">
 
       <div class="display">
         <p class="text-right operator">
-          {{todoList.operands[0]}} {{todoList.operator}}
+          {{calc.operands[0]}} {{calc.operator}}
         </p>
         <p class="text-right result">
-          {{todoList.result}}
+          {{calc.result}}
         </p>
       </div>
       
       <div class="keyboard">
-        <div ng-click="todoList.clearHit()" class="number text-center"><span>C</span></div>
-        <div ng-click="todoList.delHit()" class="number text-center"><span>DEL</span></div>
-        <div ng-click="todoList.operatorHit('^')" class="number text-center"><span>x<sup><sup>y</sup></sup></span></div>
-        <div ng-click="todoList.operatorHit('/')" class="number text-center no-right-line"><span>/</span></div>
-        <div ng-click="todoList.operatorHit('s')" class="number text-center"><span><sup style="font-size: 0.5em; padding-bottom: 0.6em;">y</sup>&radic;x</span></div>
-        <div ng-click="todoList.operatorHit('!')" class="number text-center"><span>x!</span></div>
-        <div ng-click="todoList.operatorHit('mod')" class="number text-center"><span>mod</span></div>
-        <div ng-click="todoList.operatorHit('*')" class="number text-center no-right-line"><span>*</span></div>
-        <div ng-click="todoList.operandsInsert('7')" class="number text-center"><span>7</span></div>
-        <div ng-click="todoList.operandsInsert('8')" class="number text-center"><span>8</span></div>
-        <div ng-click="todoList.operandsInsert('9')" class="number text-center"><span>9</span></div>
-        <div ng-click="todoList.operatorHit('-')" class="number text-center no-right-line"><span>-</span></div>
-        <div ng-click="todoList.operandsInsert('4')" class="number text-center"><span>4</span></div>
-        <div ng-click="todoList.operandsInsert('5')" class="number text-center"><span>5</span></div>
-        <div ng-click="todoList.operandsInsert('6')" class="number text-center"><span>6</span></div>
-        <div ng-click="todoList.operatorHit('+')" class="number text-center no-right-line"><span>+</span></div>
-        <div ng-click="todoList.operandsInsert('1')" class="number text-center"><span>1</span></div>
-        <div ng-click="todoList.operandsInsert('2')" class="number text-center"><span>2</span></div>
-        <div ng-click="todoList.operandsInsert('3')" class="number text-center"><span>3</span></div>
-        <div ng-click="todoList.equalsHit()" class="number text-center equals no-right-line no-bottom-line"><span>=</span></div>
-        <div ng-click="todoList.plusMinusHit()" class="number text-center plus-minus no-bottom-line"><span>&plusmn;</span></div>
-        <div ng-click="todoList.operandsInsert('0')" class="number text-center zero no-bottom-line"><span>0</span></div>
-        <div ng-click="todoList.operandsInsert('.')" class="number text-center dot no-bottom-line"><span>.</span></div>
+        <div ng-click="calc.clearHit()" class="number text-center"><span>C</span></div>
+        <div ng-click="calc.delHit()" class="number text-center"><span>DEL</span></div>
+        <div ng-click="calc.operatorHit('^')" class="number text-center"><span>x<sup><sup>y</sup></sup></span></div>
+        <div ng-click="calc.operatorHit('/')" class="number text-center no-right-line"><span>/</span></div>
+        <div ng-click="calc.operatorHit('sqrt')" class="number text-center"><span><sup style="font-size: 0.5em; padding-bottom: 0.6em;">y</sup>&radic;x</span></div>
+        <div ng-click="calc.operatorHit('!')" class="number text-center"><span>x!</span></div>
+        <div ng-click="calc.operatorHit('mod')" class="number text-center"><span>mod</span></div>
+        <div ng-click="calc.operatorHit('*')" class="number text-center no-right-line"><span>*</span></div>
+        <div ng-click="calc.operandsInsert('7')" class="number text-center"><span>7</span></div>
+        <div ng-click="calc.operandsInsert('8')" class="number text-center"><span>8</span></div>
+        <div ng-click="calc.operandsInsert('9')" class="number text-center"><span>9</span></div>
+        <div ng-click="calc.operatorHit('-')" class="number text-center no-right-line"><span>-</span></div>
+        <div ng-click="calc.operandsInsert('4')" class="number text-center"><span>4</span></div>
+        <div ng-click="calc.operandsInsert('5')" class="number text-center"><span>5</span></div>
+        <div ng-click="calc.operandsInsert('6')" class="number text-center"><span>6</span></div>
+        <div ng-click="calc.operatorHit('+')" class="number text-center no-right-line"><span>+</span></div>
+        <div ng-click="calc.operandsInsert('1')" class="number text-center"><span>1</span></div>
+        <div ng-click="calc.operandsInsert('2')" class="number text-center"><span>2</span></div>
+        <div ng-click="calc.operandsInsert('3')" class="number text-center"><span>3</span></div>
+        <div ng-click="calc.equalsHit()" class="number text-center equals no-right-line no-bottom-line"><span>=</span></div>
+        <div ng-click="calc.plusMinusHit()" class="number text-center plus-minus no-bottom-line"><span>&plusmn;</span></div>
+        <div ng-click="calc.operandsInsert('0')" class="number text-center zero no-bottom-line"><span>0</span></div>
+        <div ng-click="calc.operandsInsert('.')" class="number text-center dot no-bottom-line"><span>.</span></div>
         
       </div>
     </div>

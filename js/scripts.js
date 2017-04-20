@@ -1,116 +1,116 @@
-angular.module('todoApp', [])
-.controller('TodoListController', function() {
-    var todoList = this;
-    todoList.operands = ['',''];
-    todoList.operator = '';
-    todoList.result = '0';
-    todoList.eqHitLast = false;
+angular.module('calcApp', [])
+.controller('CalcController', function() {
+    var calc = this;
+    calc.operands = ['',''];
+    calc.operator = '';
+    calc.result = '0';
+    calc.eqHitLast = false;
 
 
-    todoList.operandsInsert = function(number) {
-        if(todoList.result == "error"){
+    calc.operandsInsert = function(number) {
+        if(calc.result == "error"){
             return;
         }
 
-        if(todoList.operator == '!'){
+        if(calc.operator == '!'){
             return;
         }
-        if(todoList.eqHitLast == true) {
-            todoList.operands[1] = '';
-            todoList.eqHitLast = false;
+        if(calc.eqHitLast == true) {
+            calc.operands[1] = '';
+            calc.eqHitLast = false;
         }
-    	todoList.operands[1] = todoList.operands[1] + number;
-        todoList.result = todoList.operands[1];
+    	calc.operands[1] = calc.operands[1] + number;
+        calc.result = calc.operands[1];
     }
 
-    todoList.equalsHit = function() {
-        if(todoList.result == "error"){
+    calc.equalsHit = function() {
+        if(calc.result == "error"){
             return;
         }
 
-        if (todoList.operands[0] != '' && todoList.operands[1] != '') {
-            //todoList.operands[1] = eval(todoList.operands[0] + todoList.operator + todoList.operands[1]);
-            todoList.operands[1] = todoList.eval(Number(todoList.operands[0]),Number(todoList.operands[1]),todoList.operator);
-            todoList.operands[0] = '';
-            todoList.result = todoList.operands[1];
-        } else if (todoList.operator == '!' && todoList.operands[0] != '') {
-            todoList.operands[1] = todoList.eval(Number(todoList.operands[0]),Number(todoList.operands[1]),todoList.operator);
-            todoList.operands[0] = '';
-            todoList.result = todoList.operands[1];
+        if (calc.operands[0] != '' && calc.operands[1] != '') {
+            //calc.operands[1] = eval(calc.operands[0] + calc.operator + calc.operands[1]);
+            calc.operands[1] = calc.eval(Number(calc.operands[0]),Number(calc.operands[1]),calc.operator);
+            calc.operands[0] = '';
+            calc.result = calc.operands[1];
+        } else if (calc.operator == '!' && calc.operands[0] != '') {
+            calc.operands[1] = calc.eval(Number(calc.operands[0]),Number(calc.operands[1]),calc.operator);
+            calc.operands[0] = '';
+            calc.result = calc.operands[1];
         }
         else {
-            todoList.result = todoList.operands[1];
+            calc.result = calc.operands[1];
         }
-        todoList.eqHitLast = true;
-        todoList.operator = '';
+        calc.eqHitLast = true;
+        calc.operator = '';
 
-        if(todoList.result == "Infinity"){
-            todoList.operands[0] = '';
-            todoList.operands[1] = '';
+        if(calc.result == "Infinity"){
+            calc.operands[0] = '';
+            calc.operands[1] = '';
         }
     }
     
-    todoList.operatorHit = function(operator) {
-        if(todoList.result == "error"){
+    calc.operatorHit = function(operator) {
+        if(calc.result == "error"){
             return;
         }
 
-        if (todoList.operands[0] != '' && todoList.operands[1] != '') {
-            //todoList.operands[0] = eval(todoList.operands[0] + todoList.operator + todoList.operands[1]);
-            todoList.operands[0] = todoList.eval(Number(todoList.operands[0]),Number(todoList.operands[1]),todoList.operator);
-            todoList.result = todoList.operands[0];
-            todoList.operands[1] = '';
-        } else if(todoList.operands[0] == '' && todoList.operands[1] == ''){
+        if (calc.operands[0] != '' && calc.operands[1] != '') {
+            //calc.operands[0] = eval(calc.operands[0] + calc.operator + calc.operands[1]);
+            calc.operands[0] = calc.eval(Number(calc.operands[0]),Number(calc.operands[1]),calc.operator);
+            calc.result = calc.operands[0];
+            calc.operands[1] = '';
+        } else if(calc.operands[0] == '' && calc.operands[1] == ''){
             return; //nejde zasat operator kdyz neni zadan operand
-        } else if (todoList.operands[0] == '') {
-            todoList.operands.shift();
-            todoList.operands[1] = '';
+        } else if (calc.operands[0] == '') {
+            calc.operands.shift();
+            calc.operands[1] = '';
         }
-        todoList.operator = operator;
+        calc.operator = operator;
     }
 
-    todoList.plusMinusHit = function(){
-        if(todoList.result == "error"){
+    calc.plusMinusHit = function(){
+        if(calc.result == "error"){
             return;
         }
 
-        todoList.operands[1] = Number(todoList.operands[1] * (-1));
-        todoList.result = todoList.operands[1];
+        calc.operands[1] = Number(calc.operands[1] * (-1));
+        calc.result = calc.operands[1];
     }
 
-    todoList.clearHit = function(operator) {
-        todoList.operands = ['',''];
-        todoList.operator = '';
-        todoList.result = '';
+    calc.clearHit = function(operator) {
+        calc.operands = ['',''];
+        calc.operator = '';
+        calc.result = '';
     }
 
-    todoList.delHit = function(operator) {
-        if(todoList.result == "error"){
+    calc.delHit = function(operator) {
+        if(calc.result == "error"){
             return;
         }
 
-        todoList.operands[1] = String(todoList.operands[1]).substring(0,String(todoList.operands[1]).length - 1);
-        todoList.result = todoList.operands[1];
+        calc.operands[1] = String(calc.operands[1]).substring(0,String(calc.operands[1]).length - 1);
+        calc.result = calc.operands[1];
     }
 
-    todoList.eval = function(op1, op2, operator) {
-        switch(todoList.operator) {          
+    calc.eval = function(op1, op2, operator) {
+        switch(calc.operator) {          
                 case '+': 
-                    return  todoList.operands[1] = math_lib.add(op1, op2);
+                    return  calc.operands[1] = math_lib.add(op1, op2);
                 case '-': 
-                    return  todoList.operands[1] = math_lib.sub(op1, op2); 
+                    return  calc.operands[1] = math_lib.sub(op1, op2); 
                 case '*': 
-                    return  todoList.operands[1] = math_lib.mul(op1, op2); 
+                    return  calc.operands[1] = math_lib.mul(op1, op2); 
                 case '/': 
-                    return  todoList.operands[1] = math_lib.div(op1, op2);
+                    return  calc.operands[1] = math_lib.div(op1, op2);
                 case '^':
-                    return  todoList.operands[1] = math_lib.pow(op1, op2);
-                case 's':
-                    return  todoList.operands[1] = math_lib.sqrt(op2, op1); 
+                    return  calc.operands[1] = math_lib.pow(op1, op2);
+                case 'sqrt':
+                    return  calc.operands[1] = math_lib.sqrt(op2, op1); 
                 case 'mod':
-                    return  todoList.operands[1] = math_lib.mod(op1, op2);
+                    return  calc.operands[1] = math_lib.mod(op1, op2);
                 case '!':
-                    return  todoList.operands[1] = math_lib.fact(op1); 
+                    return  calc.operands[1] = math_lib.fact(op1); 
                 default:
                     return 'error';    
             }
