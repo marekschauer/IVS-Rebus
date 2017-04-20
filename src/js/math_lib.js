@@ -28,14 +28,8 @@ class math_lib{
         if(y == 0){
             return "NaN";
         }
-
-        do{
-            if(x < y){
-                return x;
-            }else{
-                x = x - y;
-            }
-        }while(1);
+        
+        return x % y;
     }
 
     static fact(x){
