@@ -104,7 +104,8 @@ angular.module('calcApp', [])
         if(calc.result == "error" || calc.result == "NaN"){
             return;
         }
-
+        
+        calc.eqHitLast = false;
         //pridani nebo odebrani unarniho minus pokud je řetězec prazdny či obsahuje pouze minus
         if(calc.operands[1] == ""){
             calc.operands[1] = "-";
