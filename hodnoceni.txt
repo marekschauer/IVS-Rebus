@@ -1,0 +1,3 @@
+xblaze31 100 (matematická knihovna, logická a výpočetní část kalkulačky)
+xkohou08 100 (testy, dokumentace, prezentace, instalátor a odinstalátor)
+xschau00 100 (mockupy, GUI, Makefile, logická a výpočetní část kalkulačky)
