@@ -15,16 +15,37 @@ angular.module('calcApp', [])
         if(calc.operator == '!'){
             return;
         }
+
+        //reset pocitani pokud bylo pred tim stisknuto rovna se
         if(calc.eqHitLast == true) {
             calc.operands[1] = '';
             calc.eqHitLast = false;
         }
+
+        //hledani tecky
+        dot = false;
+        for(i = 0; i < calc.operands[1].length; i++){
+            if(calc.operands[1][i] == '.'){
+                dot = true;
+            }
+        }
+        //uzivatel muze zadat pouze jednu tecku
+        if(number == '.' && dot){
+            return;
+        }
+        //tecka jako prvni prida implicitně nulu před
+        if(calc.operands[1] == "" && number == '.'){
+            calc.operands[1] = "0.";
+            calc.result = calc.operands[1];
+            return;
+        }
+
     	calc.operands[1] = calc.operands[1] + number;
         calc.result = calc.operands[1];
     }
 
     calc.equalsHit = function() {
-        if(calc.result == "error"){
+        if(calc.result == "error" || calc.result == "NaN"){
             return;
         }
 
@@ -51,7 +72,7 @@ angular.module('calcApp', [])
     }
     
     calc.operatorHit = function(operator) {
-        if(calc.result == "error"){
+        if(calc.result == "error" || calc.result == "NaN"){
             return;
         }
 
@@ -70,9 +91,21 @@ angular.module('calcApp', [])
     }
 
     calc.plusMinusHit = function(){
-        if(calc.result == "error"){
+        if(calc.result == "error" || calc.result == "NaN"){
             return;
         }
+
+        //pridani nebo odebrani unarniho minus pokud je řetězec prazdny či obsahuje pouze minus
+        if(calc.operands[1] == ""){
+            calc.operands[1] = "-";
+            calc.result = calc.operands[1];
+            return;
+        } else if (calc.operands[1] == "-") {
+            calc.operands[1] = "";
+            calc.result = calc.operands[1];
+            return;
+        }
+
 
         calc.operands[1] = Number(calc.operands[1] * (-1));
         calc.result = calc.operands[1];
@@ -85,7 +118,7 @@ angular.module('calcApp', [])
     }
 
     calc.delHit = function(operator) {
-        if(calc.result == "error"){
+        if(calc.result == "error" || calc.result == "NaN"){
             return;
         }
 
