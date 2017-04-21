@@ -4,6 +4,7 @@ all:
 
 clean:
 	rm -rf latex ../node_modules ../../doc/html
+	rm package.json
 
 pack: clean
 	cd ../.. && zip -r "xblaze31_xkohou08_xschau00" \
