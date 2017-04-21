@@ -3,7 +3,7 @@
 all:
 
 clean:
-	rm -rf latex ../node_modules
+	rm -rf latex ../node_modules ../../doc/html
 
 pack: clean
 	cd ../.. && zip -r "xblaze31_xkohou08_xschau00" \
@@ -36,3 +36,10 @@ test-karma:
 	#Po spuštění testovacího serveru je možné spustit testy. Zobrazí se na staré konzoli.
 test:
 	touch js/Test/test.js
+
+doc:
+	doxygen
+	mv html ../../doc/html
+
+run:
+	firefox index.html
