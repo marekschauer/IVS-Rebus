@@ -39,8 +39,6 @@ test:
 
 doc:
 	doxygen
-	rm -rf ../../doc/html
-	mv html ../../doc/html
 
 run:
 	firefox index.html
