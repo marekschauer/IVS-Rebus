@@ -5,7 +5,7 @@ angular.module('calcApp', [])
     calc.operator = '';
     calc.result = '0';
     calc.eqHitLast = false;
-
+    calc.showMenu = false;
 
     calc.operandsInsert = function(number) {
         if(calc.result == "error"){
@@ -158,6 +158,34 @@ angular.module('calcApp', [])
                 default:
                     return 'error';    
             }
+    }
+
+    calc.toggleMenu = function() {
+        calc.showMenu = ! calc.showMenu;
+    }
+
+    calc.handleKey = function(event) {
+        var keyCode = event.keyCode;
+        console.log(keyCode);
+        if (keyCode >= 96 && keyCode <= 105) {
+            calc.operandsInsert(keyCode-96);
+        } else if (keyCode >= 48 && keyCode <= 57) {
+            calc.operandsInsert(keyCode-48);
+        } else if (keyCode == 107) {
+            calc.operatorHit('+');
+        } else if (keyCode == 109) {
+            calc.operatorHit('-');
+        } else if (keyCode == 106) {
+            calc.operatorHit('*');
+        } else if (keyCode == 111) {
+            calc.operatorHit('/');
+        } else if (keyCode == 13) {
+            calc.equalsHit();
+        } else if (keyCode == 190 || keyCode == 188 || keyCode == 110) {
+            calc.operandsInsert('.');
+        } else if (keyCode == 8) {
+            calc.delHit();
+        }
     }
 
 });
