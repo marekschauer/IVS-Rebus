@@ -1,3 +1,6 @@
+/**
+ * Modul zajišťující zpracování akcí při stisknutí jednotlivých kláves.
+ */
 angular.module('calcApp', [])
 .controller('CalcController', function() {
     var calc = this;
@@ -6,7 +9,11 @@ angular.module('calcApp', [])
     calc.result = '0';
     calc.eqHitLast = false;
 
-
+    /**
+     * Zajišťuje vkládání operandů.
+     *
+     * @param      String  number  Operand zadaný na klávesnici.
+     */
     calc.operandsInsert = function(number) {
         if(calc.result == "error"){
             return;
@@ -49,6 +56,9 @@ angular.module('calcApp', [])
         calc.result = calc.operands[1];
     }
 
+    /**
+     * Zajišťuje výpočet v případě že bylo zmáčknuto rovná se.
+     */
     calc.equalsHit = function() {
         if(calc.result == "error" || calc.result == "NaN"){
             return;
@@ -80,6 +90,11 @@ angular.module('calcApp', [])
         }
     }
     
+    /**
+     * Řeší situaci zadání operátoru a případný mezivýpočet.
+     *
+     * @param      String  operator  Operátor
+     */
     calc.operatorHit = function(operator) {
         if(calc.result == "error" || calc.result == "NaN"){
             return;
@@ -100,6 +115,9 @@ angular.module('calcApp', [])
         calc.result = "";
     }
 
+    /**
+     * Při stisku tlačítka +/- změní znaménko operandu.
+     */
     calc.plusMinusHit = function(){
         if(calc.result == "error" || calc.result == "NaN"){
             return;
@@ -122,13 +140,19 @@ angular.module('calcApp', [])
         calc.result = calc.operands[1];
     }
 
-    calc.clearHit = function(operator) {
+    /**
+     * Resetuje kalkulačku
+     */
+    calc.clearHit = function() {
         calc.operands = ['',''];
         calc.operator = '';
         calc.result = '';
     }
 
-    calc.delHit = function(operator) {
+    /**
+     * Smaže jeden znak operandu.
+     */
+    calc.delHit = function() {
         if(calc.result == "error" || calc.result == "NaN"){
             return;
         }
@@ -137,6 +161,14 @@ angular.module('calcApp', [])
         calc.result = calc.operands[1];
     }
 
+    /**
+     * Funkce zajišťující vyvolání správné funkce z matematické knihovny podle operátoru.
+     *
+     * @param      Number  op1       První operand
+     * @param      Number  op2       Druhý operand
+     * @param      Number  operator  Operátor
+     * @return     Výsledná hodnota po vyhodnocení operace.
+     */
     calc.eval = function(op1, op2, operator) {
         switch(calc.operator) {          
                 case '+': 
@@ -161,5 +193,3 @@ angular.module('calcApp', [])
     }
 
 });
-
-//konkatenace spatna kdyz 3+3=44 napr.
