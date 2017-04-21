@@ -4,8 +4,8 @@
 angular.module('calcApp', [])
 .controller('CalcController', function() {
     var calc = this;
-    calc.operands = ['',''];
-    calc.operator = '';
+    calc.operands = ["",""];
+    calc.operator = "";
     calc.result = '0';
     calc.eqHitLast = false;
     calc.showMenu = false;
@@ -50,9 +50,8 @@ angular.module('calcApp', [])
 
         if(calc.operands[1] == "0"){
             calc.operands[1] = number;  
-        }
-        else{
-    	   calc.operands[1] = calc.operands[1] + number;
+        } else {
+    	    calc.operands[1] = "" + calc.operands[1] + number;
         }
         calc.result = calc.operands[1];
     }
@@ -203,7 +202,7 @@ angular.module('calcApp', [])
         if (keyCode >= 96 && keyCode <= 105) {
             calc.operandsInsert(keyCode-96);
         } else if (keyCode >= 48 && keyCode <= 57) {
-            calc.operandsInsert(keyCode-48);
+            calc.operandsInsert(number.toString(keyCode-48));
         } else if (keyCode == 107) {
             calc.operatorHit('+');
         } else if (keyCode == 109) {
