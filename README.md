@@ -1,20 +1,17 @@
-﻿Předběžný plán projektu - Tým Rébus
+﻿Prostredi
+---------
 
-Komunikační prostředky:
-Jako komunikační kanál jsme zvolili Messenger na Facebooku, protože ho všichni využíváme a mimo spánek jsme online prakticky neustále. Máme založenou skupinovou konverzaci a taktéž jsme založili tajnou skupinu, kam budeme vkládat důležité informace pro všechny členy týmu.
+Ubuntu 32bit
+Ubuntu 64bit
 
-Systém pro správu verzí:
-Jako verzovací nástroj budeme používat Git. Společným místem pro náš kód jsme zvolili pro nás všechny známou službu GitHub.
+Autori
+------
+Rebus
+- xblaze31 Tomas Blazek
+- xkohou08 Tomas Kohout
+- xschau00 Marek Schauer
 
-Přidělení úkolu na projektu:
-Matematické funkce - Tomáš Blažek/Kohout
-GUI - Marek Schauer
-Testy - Tomáš Blažek/Kohout
+Licence
+-------
 
-Termíny:
-Dokončení návrhu do 1. dubna. 
-Do 10. dubna chceme mít hotovou funkční matematickou knihovnu.
-V týdnu od 10. do 17. dubna vytvoříme uživatelské grafické rozhraní.
-Finální testování od 17. do 20. dubna.
-Plánovaný termín dokončení: 20.dubna.
-Odevzdání: 24. dubna 2017.
+Tento program je poskytovan s otevrenymi zdrojovymi texty pod licenci GNU GPL 3.

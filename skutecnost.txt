@@ -1,0 +1,27 @@
+=================================================
+= Skutečný průběh prací na projektu - Tým Rébus =
+=================================================
+
+Reálné rozdělení úkolů:
+	Tomáš Blažek
+		- matematická knihovna
+		- logická a výpočetní část kalkulačky
+		- dokumentace
+	Tomáš Kohout
+		- testy
+		- dokumentace
+		- prezentace
+		- instalátor a odinstalátor
+	Marek Schauer
+		- mockupy
+		- GUI a propojení s logickou vrstvou
+		- logická a výpočetní část kalkulačky
+
+Rozdíly v termínech:
+	- 12.4.2017 - zvolení programovacího jazyka a platformy
+	- 14.4.2017 - první verze GUI a logické vrstvy celé aplikace
+	- 15.4.2017 - testy
+	- 17.4.2017 - matematická knihovna
+	- 18.4.2017 - finálnější verze GUI
+	- 18.4.2017 - 21.4.2017 - ladění a opravování chyb
+	- 21.4.2017 - Makefile, dokumentace
