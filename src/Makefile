@@ -23,22 +23,31 @@ test-npm:
 	chmod +x nvm.sh
 	./nvm.sh
 	gnome-terminal
+
 test-install:
 	npm install karma karma-jasmine jasmine-core karma-chrome-launcher karma-firefox-launcher --save-dev
 	npm install -g karma-cli
 
-#3
-	#Pro spuštění testovacího serveru použijte make test-karma. Tento terminál nezavírejte! Otevře se nový terminál a v něm použijte make test. Výsledky testů se objeví v terminálu, kde se spustil příkaz make test-karma.
+#3.
+	#V nově otevřeném terminálu spusťte make test-install
+
 test-karma:
 	gnome-terminal
 	karma start karma.conf.js
+
 #4
-	#Po spuštění testovacího serveru je možné spustit testy. Zobrazí se na staré konzoli.
+	#Po spuštění testovacího serveru je možné spustit testy v nové konzoli. Výsledky se zobrazí na staré konzoli.
+
 test:
-	touch js/Test/test.js
+	$(info ::::::::::::::::::::::::::::::::::::::::::::::)
+	$(info Pokud není spuštěný server, tak se nespustí ani testy. Prosím, otevřete Makefile a postupujte podle instrukcí.)
+	$(info ::::::::::::::::::::::::::::::::::::::::::::::)
+	karma run
 
 doc:
 	doxygen
+	rm -rf ../../doc/html
+	mv html ../../doc/html
 
 run:
 	firefox index.html
