@@ -1,0 +1,3 @@
+Zpráva z profilingu výpočtu směrodatné odchylky.
+
+Program tráví nejvíce času v implementaci samotné směrodatné odchylky (99 %). Tudíž by bylo dobré se příště zaměřit na optimálnější zapsání vrozce. Například předpočítat si některé možné hodnoty, aby se znovu nemuseli přepočítávat.

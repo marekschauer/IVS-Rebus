@@ -2,8 +2,11 @@
 
 all:
 
+clean-doc:
+	rm -rf ../../doc/html
+
 clean:
-	rm -rf latex ../node_modules ../../doc/html
+	rm -rf latex ../node_modules
 	-rm ../package.json
 
 pack: clean
@@ -47,8 +50,6 @@ test:
 
 doc:
 	doxygen
-	rm -rf ../../doc/html
-	mv html ../../doc/html
 
 run:
 	firefox index.html
