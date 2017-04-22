@@ -4,10 +4,10 @@ all:
 
 clean:
 	rm -rf latex ../node_modules ../../doc/html
-	rm package.json
+	-rm ../package.json
 
 pack: clean
-	cd ../.. && zip -r "xblaze31_xkohou08_xschau00" \
+	cd ../../.. && zip -r "xblaze31_xkohou08_xschau00" \
 	xblaze31_xkohou08_xschau00
 
 #1.
