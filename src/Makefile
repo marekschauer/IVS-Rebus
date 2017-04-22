@@ -7,7 +7,7 @@ clean-doc:
 
 clean:
 	rm -rf latex ../node_modules
-	-rm ../package.json
+	rm -f ../package.json
 
 pack: clean
 	cd ../../.. && zip -r "xblaze31_xkohou08_xschau00" \
